@@ -4,18 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "node index.js",
     "build": "next build",
-    "start": "next start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_ENV=production node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "airtable": "^0.5.7",
+    "dotenv": "^6.1.0",
+    "dotenv-webpack": "^1.5.7",
+    "express": "^4.16.4",
+    "isomorphic-unfetch": "^3.0.0",
     "next": "^7.0.2",
+    "ramda": "^0.25.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-no-ssr": "^1.1.0",
     "react-twitter-widgets": "^1.7.1"
   }
 }

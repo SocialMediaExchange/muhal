@@ -1,12 +1,13 @@
 import React from 'react'
 
-export default () => {
+export default ({searchText, onChange}) => {
   return (
-    <form class="black-80">
+    <form class="pa3 black-80">
       <div class="measure">
         <label for="name" class="f3 b db mb2">Find a case file</label>
-        <input id="name" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="name-desc" />
+        <input id="name" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="name-desc"
+          onChange={onChange} value={searchText} />
      </div>
     </form>
-      );
+  );
 }

@@ -1,12 +1,46 @@
+import React from 'react'
 import Search from '../components/searchbox'
 import Card from '../components/card'
-import Frame from '../components/frame'
+import fetch from 'isomorphic-unfetch'
 
-let arr = [1,2,3,4,5,6,7,8,9,10]
-export default () => (
-  <Frame>
-    <h1>Search</h1>
-    <Search />
-    {arr.map(() => <Card />)}
-  </Frame>
-)
+export default class extends React.Component {
+  static async getInitialProps(ctx) {
+    const isServer = !!ctx.req
+
+    if (isServer) {
+      return ctx.query
+    }
+    else {
+      const res = await fetch('/_data/cases', {headers: {'Accept': 'application/json'}})
+      const json = await res.json()
+      return json
+    }
+  }
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      searchText: ""
+    }
+    this.onChange = this.onChange.bind(this)
+  }
+
+  onChange (e) {
+    this.setState({
+      searchText: e.target.value
+    })
+  }
+
+  render() {
+    const { cases } = this.props
+    return (
+      <div>
+        <h1>Search</h1>
+        <Search onChange={this.onChange} searchText={this.state.searchText} />
+        <div class="flex flex-wrap">
+          {cases.map(data => <Card data={data} />)}
+        </div>
+      </div>
+    )
+  }
+}
