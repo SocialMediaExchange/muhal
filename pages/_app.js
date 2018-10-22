@@ -36,7 +36,7 @@ const Layout = ({ children }) => (
             <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
               <a class="link dim black f6 ttu f5-l dib mr3 mr4-l" href="/" title="Cases">Cases</a>
               <a class="link dim black f6 ttu f5-l dib mr3 mr4-l" href="/about" title="About">About</a>
-              <a class="link dim black f6 ttu f5-l dib" href="/report" title="Report">Report Violation</a>
+              <a class="link dim white bg-light-red br2 pa2 f6 f5-l dib b ttu" href="/report" title="Report">Report Issue</a>
             </div>
           </nav>
         </header>

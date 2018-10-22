@@ -51,7 +51,6 @@ export default class extends Component {
       })
       return <dl class="ml3 lh-title shadow-4 dib pa2 b--black-10 ba mw5 flex-auto">{fields}</dl>
     })
-    console.log(people)
     return <div>
       <h2>People</h2>
       <div class="flex flex-wrap w-100">
