@@ -2,6 +2,12 @@ import React from 'react'
 import Search from '../components/searchbox'
 import Card from '../components/card'
 import fetch from 'isomorphic-unfetch'
+import {values, any, test} from 'ramda'
+
+function filterCases(searchText, caseData) {
+  const testSearch = test(new RegExp(searchText, 'ig'))
+  return any(testSearch, values(caseData))
+}
 
 export default class extends React.Component {
   static async getInitialProps(ctx) {
@@ -33,11 +39,16 @@ export default class extends React.Component {
 
   render() {
     const { cases } = this.props
+    const searchText = this.state.searchText
+    let casesToDisplay = cases;
+    if (searchText && searchText.length > 0) {
+      casesToDisplay = cases.filter(caseData => filterCases(searchText, caseData))
+    }
     return (
       <div>
-        <Search onChange={this.onChange} searchText={this.state.searchText} />
+        <Search onChange={this.onChange} searchText={searchText} />
         <div class="flex flex-wrap">
-          {cases.map(data => <Card data={data} />)}
+          {casesToDisplay.map(data => <Card data={data} />)}
         </div>
       </div>
     )
