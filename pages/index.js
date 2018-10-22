@@ -35,7 +35,6 @@ export default class extends React.Component {
     const { cases } = this.props
     return (
       <div>
-        <h1>Search</h1>
         <Search onChange={this.onChange} searchText={this.state.searchText} />
         <div class="flex flex-wrap">
           {cases.map(data => <Card data={data} />)}

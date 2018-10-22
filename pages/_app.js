@@ -29,26 +29,23 @@ const Layout = ({ children }) => (
     </Head>
 
     <div class="flex-l flex-m overflow-scroll">
-      <segment class="pa4 vh-100-m vh-100-l sans-serif w-100 overflow-y-auto">
-        <header class="">
-          <nav class="lh-copy mv0">
-            <ul class="f5 list pa0 tc">
-              <h3 class="f2 f3-m mv0">
-                <span class="black tracked-tight measure-wide">
-                  Freedom of Speech in Lebanon
-             </span>
-              </h3>
-              <li class="dib mr2"><Link><a class="link underline-hover dark-gray b ttu" href="/about">Cases</a></Link></li>
-              <li class="dib mr2"><Link><a class="link underline-hover dark-gray b ttu" href="/about">People</a></Link></li>
-              <li class="dib mr2"><Link><a class="link underline-hover dark-gray b ttu" href="/report">Report a violation</a></Link></li>
-            </ul>
+      <segment class="vh-100-m vh-100-l avenir w-100 overflow-y-auto">
+        <header class="w-100 pa4 bg-gold">
+          <nav class="db dt-l w-100 border-box">
+            <a class="db dtc-l v-mid b black f3 link w-100 w-33-l tc tl-l mb2 mb0-l tracked-tight" href="/" title="Home">Freedom of Speech in Lebanon</a>
+            <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+              <a class="link dim black f6 ttu f5-l dib mr3 mr4-l" href="/" title="Cases">Cases</a>
+              <a class="link dim black f6 ttu f5-l dib mr3 mr4-l" href="/about" title="About">About</a>
+              <a class="link dim black f6 ttu f5-l dib" href="/report" title="Report">Report Violation</a>
+            </div>
           </nav>
-
         </header>
-        {children}
+        <div class="pa4-ns bt b--black-10">
+          {children}
+        </div>
       </segment>
       <footer class="pa3-l pa2 center w-30">
-        <h6 class="i tc f7 dark-gray georgia lh-copy mv0">2018 SMEX.org · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></h6>
+        <h6 class="i tc f7 dark-gray avenir lh-copy mv0">2018 SMEX.org · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></h6>
         <NoSSR onSSR={<Loading />} class="center pa3-l pa2 dib-l dn">
           <Timeline
             dataSource={{

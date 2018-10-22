@@ -17,6 +17,24 @@ app.prepare()
         return res.json(records)
       })
     })
+    
+    server.get('/_data/cases/:id', (req, res) => {
+      const id = req.params.id
+      getCase(id, function (err, record) {
+        return res.json(record)
+      })
+    })
+
+    server.get('/cases/:id', (req, res) => {
+      const id = req.params.id
+      getCase(id, function (err, record) {
+        if (err) {
+          return app.render(req, res, "/case", { case: {}, id })
+        } else {
+          return app.render(req, res, "/case", { case: record, id })
+        }
+      })
+    })
 
     server.get('/', (req, res) => {
       getCases(100, function (err, records) {
