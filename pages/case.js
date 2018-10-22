@@ -39,7 +39,6 @@ export default class extends Component {
 
   render () {
     const data = this.props.case.fields
-    console.log(this.props.case.people)
     const people = this.props.case.people.map((person) => {
       let fields = en_people_fields.map((field) => {
         return (

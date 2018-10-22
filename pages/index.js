@@ -1,8 +1,9 @@
 import React from 'react'
 import Search from '../components/searchbox'
+import Select from '../components/select'
 import Card from '../components/card'
 import fetch from 'isomorphic-unfetch'
-import {values, any, test} from 'ramda'
+import {values, any, test, uniq} from 'ramda'
 
 function filterCases(searchText, caseData) {
   const testSearch = test(new RegExp(searchText, 'ig'))
@@ -26,9 +27,12 @@ export default class extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      searchText: ""
+      searchText: "",
+      Year: null,
+      Medium: null
     }
     this.onChange = this.onChange.bind(this)
+    this.onSelect = this.onSelect.bind(this)
   }
 
   onChange (e) {
@@ -37,16 +41,41 @@ export default class extends React.Component {
     })
   }
 
+  onSelect (label) {
+    const component = this;
+    return function (option) {
+      component.setState({
+        [label]: option.target.value === "None Selected"? null : option.target.value
+      })
+    }
+  }
+
   render() {
     const { cases } = this.props
-    const searchText = this.state.searchText
+    const {searchText, Year, Medium} = this.state
     let casesToDisplay = cases;
     if (searchText && searchText.length > 0) {
       casesToDisplay = cases.filter(caseData => filterCases(searchText, caseData))
     }
+
+    const mediumOptions = uniq(cases.map(data => data["Medium"]))
+    const yearOptions = uniq(cases.map(data => data["Year"]))
+
+    if (Year) {
+      casesToDisplay = casesToDisplay.filter(data => data["Year"] === Year)
+    }
+
+    if (Medium) {
+      casesToDisplay = casesToDisplay.filter(data => data["Medium"] === Medium)
+    }
+
     return (
       <div>
+        <div class="flex flex-wrap">
         <Search onChange={this.onChange} searchText={searchText} />
+        <Select options={mediumOptions} selected={this.state["Medium"]} onChange={this.onSelect("Medium")} selectLabel="Medium" />
+        <Select options={yearOptions} selected={this.state["Year"]} onChange={this.onSelect("Year")} selectLabel="Year" />
+        </div>
         <div class="flex flex-wrap">
           {casesToDisplay.map(data => <Card data={data} />)}
         </div>
