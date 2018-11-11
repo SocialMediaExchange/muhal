@@ -31,47 +31,54 @@ export default class extends Component {
       return ctx.query
     }
     else {
-      const res = await fetch(`/_data/cases/${ctx.query.id}`, {headers: {'Accept': 'application/json'}})
-      const json = await res.json()
-      return json
+      try {
+        const res = await fetch(`/_data/cases/${ctx.query.id}`, { headers: { 'Accept': 'application/json' } })
+        const json = await res.json()
+        return json
+      } catch (err) {
+        console.error('Error', err)
+      }
     }
   }
 
   render () {
+    if (!this.props.case.fields) {
+      return <div>Loading...</div>
+    }
     const data = this.props.case.fields
     const people = this.props.case.people.map((person) => {
       let fields = en_people_fields.map((field) => {
         return (
-          <div class="pb1">
-            <dt class="f6 b">{field}</dt>
-            <dd class="ml0">{person.fields[field]}</dd>
+          <div className="pb1" key={field}>
+            <dt className="f6 b">{field}</dt>
+            <dd className="ml0">{person.fields[field]}</dd>
           </div>
         )
       })
-      return <dl class="ml3 lh-title shadow-4 dib pa2 b--black-10 ba mw5 flex-auto">{fields}</dl>
+      return <dl className="ml3 lh-title shadow-4 dib pa2 b--black-10 ba mw5 flex-auto">{fields}</dl>
     })
     return <div>
       <h2>People</h2>
-      <div class="flex flex-wrap w-100">
+      <div className="flex flex-wrap w-100">
       {people}
       </div>
       <h2>Description</h2>
-      <p class="pa2 measure-wide">
+      <p className="pa2 measure-wide">
         {data["Description of the Case"]}
       </p>
       <h2>Case information</h2>
-      <dl class="lh-title pa2 mt0">
-        {en_description_fields.map((field) => {
-          let data = data[field]
-          let displayedData = data
-          if (data.trim().length === 0) {
+      <dl className="lh-title pa2 mt0">
+        {data && en_description_fields.map((field) => {
+          let val = data[field] || "N/A"
+          let displayedData = val
+          if (displayedData && displayedData.trim().length === 0) {
             displayedData = "N/A"
           }
 
           return (
-            <div class="pb1">
-              <dt class="f6 b dib mb2">{field + ":"}</dt>
-              <dd class="ml1 dib">{displayedData}</dd>
+            <div className="pb1" key={field}>
+              <dt className="f6 b dib mb2">{field + ":"}</dt>
+              <dd className="ml1 dib">{displayedData}</dd>
             </div>
           )
         })}

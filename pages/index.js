@@ -77,13 +77,13 @@ export default class extends React.Component {
 
     return (
       <div>
-        <div class="flex flex-wrap">
-        <Search onChange={this.onChange} searchText={searchText} />
-        <Select options={mediumOptions} selected={this.state["Medium"]} onChange={this.onSelect("Medium")} selectLabel="Medium" />
-        <Select options={yearOptions} selected={this.state["Year"]} onChange={this.onSelect("Year")} selectLabel="Year" />
+        <div className="flex flex-wrap">
+          <Search onChange={this.onChange} searchText={searchText} />
+          <Select options={mediumOptions} selected={this.state["Medium"]} onChange={this.onSelect("Medium")} selectLabel="Medium" />
+          <Select options={yearOptions} selected={this.state["Year"]} onChange={this.onSelect("Year")} selectLabel="Year" />
         </div>
-        <div class="flex flex-wrap">
-          {casesToDisplay.map(data => <Card data={data} />)}
+        <div className="flex flex-wrap">
+          {casesToDisplay.map(data => <Card data={data} key={data.id}/>)}
         </div>
       </div>
     )
