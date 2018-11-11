@@ -3,11 +3,13 @@ import Search from '../components/searchbox'
 import Select from '../components/select'
 import Card from '../components/card'
 import fetch from 'isomorphic-unfetch'
-import {values, any, test, uniq} from 'ramda'
+import {values, any, test, uniq, uniqBy, prop} from 'ramda'
 
-function filterCases(searchText, caseData) {
-  const testSearch = test(new RegExp(searchText, 'ig'))
-  return any(testSearch, values(caseData))
+function filterCases(searchText) {
+  return caseData => {
+    const testSearch = test(new RegExp(searchText, 'ig'))
+    return any(testSearch, values(caseData))
+  }
 }
 
 export default class extends React.Component {
@@ -54,8 +56,12 @@ export default class extends React.Component {
     const { cases } = this.props
     const {searchText, Year, Medium} = this.state
     let casesToDisplay = cases;
+
+    // Filter cases with the same primary
+    casesToDisplay = uniqBy(prop('Primary'), casesToDisplay)
+
     if (searchText && searchText.length > 0) {
-      casesToDisplay = cases.filter(caseData => filterCases(searchText, caseData))
+      casesToDisplay = casesToDisplay.filter(filterCases(searchText))
     }
 
     const mediumOptions = uniq(cases.map(data => data["Medium"]))

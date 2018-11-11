@@ -62,10 +62,16 @@ export default class extends Component {
       <h2>Case information</h2>
       <dl class="lh-title pa2 mt0">
         {en_description_fields.map((field) => {
+          let data = data[field]
+          let displayedData = data
+          if (data.trim().length === 0) {
+            displayedData = "N/A"
+          }
+
           return (
             <div class="pb1">
-              <dt class="f6 b">{field}</dt>
-              <dd class="ml0">{data[field]}</dd>
+              <dt class="f6 b dib mb2">{field + ":"}</dt>
+              <dd class="ml1 dib">{displayedData}</dd>
             </div>
           )
         })}
