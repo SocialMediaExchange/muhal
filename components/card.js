@@ -31,6 +31,8 @@ export default (record) => {
               <dd className="dib ml1 gray">{data["Medium"]}</dd>
               <dt className="dib b">Complaint By: </dt>
               <dd className="dib ml1 gray">{data["Complaint by"]}</dd>
+            </dl>
+            <dl className="f6 lh-title mv2">
               {imagesToDisplay}
             </dl>
             <p className="f6 f5-ns lh-copy measure">{substr(data["Description of the Case"], 130)}</p>
