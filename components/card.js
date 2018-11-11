@@ -29,6 +29,8 @@ export default (record) => {
             <dl className="f6 lh-title mv2">
               <dt className="dib b">Medium:</dt>
               <dd className="dib ml1 gray">{data["Medium"]}</dd>
+            </dl>
+            <dl className="f6 lh-title mv2">
               <dt className="dib b">Complaint By: </dt>
               <dd className="dib ml1 gray">{data["Complaint by"]}</dd>
             </dl>
