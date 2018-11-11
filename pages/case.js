@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {has} from 'ramda'
 
 const en_description_fields = [
   "Accused of",
@@ -46,6 +47,8 @@ export default class extends Component {
       return <div>Loading...</div>
     }
     const data = this.props.case.fields
+    console.log(data)
+
     const people = this.props.case.people.map((person) => {
       let fields = en_people_fields.map((field) => {
         return (
@@ -57,6 +60,28 @@ export default class extends Component {
       })
       return <dl className="ml3 lh-title shadow-4 dib pa2 b--black-10 ba mw5 flex-auto">{fields}</dl>
     })
+
+    // Images
+    const imageLabels = ["Post picture", "Language in Question", "Image of the sentence"]
+    let imagesToDisplay = []
+    imageLabels.forEach(imageLabel => {
+      let attachments = data[imageLabel]
+      if (attachments) {
+        attachments.filter(has('thumbnails')).forEach(image => {
+          imagesToDisplay.push(
+            <a class="db mw5 tc black link dim" href={image.url}>
+              <img class="db ba b--black-10" alt="" src={image.thumbnails.large.url} />
+              <dl class="mt2 f6 lh-copy">
+                <dt class="clip">Label</dt>
+                <dd class="ml0">{imageLabel}</dd>
+              </dl>
+            </a>
+          )
+        }
+        )
+      }
+    })
+
     return <div>
       <h2>People</h2>
       <div className="flex flex-wrap w-100">
@@ -83,6 +108,9 @@ export default class extends Component {
           )
         })}
       </dl>
+      {
+        imagesToDisplay
+      }
     </div>
   }
 }
