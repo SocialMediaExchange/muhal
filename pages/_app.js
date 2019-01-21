@@ -33,7 +33,7 @@ const Layout = ({ children }) => (
   </div>
 )
 
-export default class FOSIL extends App {
+export default class Muhal extends App {
   render() {
     const { Component, pageProps } = this.props
 
@@ -43,5 +43,4 @@ export default class FOSIL extends App {
       </Layout>
     </Container>
   }
-
 }

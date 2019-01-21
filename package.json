@@ -1,5 +1,5 @@
 {
-  "name": "fosil",
+  "name": "muhal",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "airtable": "^0.5.7",
     "dotenv": "^6.1.0",
