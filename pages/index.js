@@ -3,7 +3,7 @@ import Search from '../components/searchbox'
 import Select from '../components/select'
 import Card from '../components/card'
 import fetch from 'isomorphic-unfetch'
-import {values, any, test, uniq, uniqBy, prop} from 'ramda'
+import {values, any, test, uniq, uniqBy, prop, includes} from 'ramda'
 
 function filterCases(searchText) {
   return caseData => {
@@ -31,7 +31,8 @@ export default class extends React.Component {
     this.state = {
       searchText: "",
       Year: null,
-      Medium: null
+      Medium: null,
+      Complaint: null
     }
     this.onChange = this.onChange.bind(this)
     this.onSelect = this.onSelect.bind(this)
@@ -54,7 +55,8 @@ export default class extends React.Component {
 
   render() {
     const { cases } = this.props
-    const {searchText, Year, Medium} = this.state
+    const {searchText, Year, Medium, Complaint} = this.state
+    console.log(this.state)
     let casesToDisplay = cases;
 
     // Filter cases with the same primary
@@ -64,15 +66,22 @@ export default class extends React.Component {
       casesToDisplay = casesToDisplay.filter(filterCases(searchText))
     }
 
-    const mediumOptions = uniq(cases.map(data => data["Medium"]))
-    const yearOptions = uniq(cases.map(data => data["Year"]))
+    const mediumOptions = uniq(cases.map(prop("Platform")))
+    const yearOptions = uniq(cases.map(prop("Year")))
+    const complaintOptions = uniq(cases.map(prop("Complaint")))
 
     if (Year) {
       casesToDisplay = casesToDisplay.filter(data => data["Year"] === Year)
     }
 
     if (Medium) {
-      casesToDisplay = casesToDisplay.filter(data => data["Medium"] === Medium)
+      casesToDisplay = casesToDisplay.filter(data => data["Platform"] === Medium)
+    }
+
+    if (Complaint) {
+      casesToDisplay = casesToDisplay.filter(data => {
+        return new Set(data["Complaint"]).has(Complaint)
+      })
     }
 
     return (
@@ -81,6 +90,7 @@ export default class extends React.Component {
           <Search onChange={this.onChange} searchText={searchText} />
           <Select options={mediumOptions} selected={this.state["Medium"]} onChange={this.onSelect("Medium")} selectLabel="Medium" />
           <Select options={yearOptions} selected={this.state["Year"]} onChange={this.onSelect("Year")} selectLabel="Year" />
+          <Select options={complaintOptions} selected={this.state["Complaint"]} onChange={this.onSelect("Complaint")} selectLabel="Complaint by" />
         </div>
         <div className="flex flex-wrap">
           {casesToDisplay.map(data => <Card data={data} key={data.id}/>)}

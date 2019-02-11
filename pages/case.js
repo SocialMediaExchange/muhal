@@ -7,13 +7,13 @@ const en_description_fields = [
   "Bail amount",
   "Charged Under (law, article)",
   "Charged With",
-  "Complaint by",
+  "Complaint",
   "Date of Detention (if any)",
   "Date of Release",
   "Date of investigation",
   "In Absentia",
   "Judge/Police Station",
-  "Medium",
+  "Platform",
   "Outcome",
   "Year"
 ]

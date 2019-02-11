@@ -27,12 +27,12 @@ export default (record) => {
         <article className="bg-white shadow-4 pointer grow db min-h-100 mw5-ns hidden ba b--black-10">
           <div className="pa3 bt b--black-10">
             <dl className="f6 lh-title mv2">
-              <dt className="dib b">Medium:</dt>
-              <dd className="dib ml1 gray">{data["Medium"]}</dd>
+              <dt className="dib b">Platform:</dt>
+              <dd className="dib ml1 gray">{data["Platform"]}</dd>
             </dl>
             <dl className="f6 lh-title mv2">
-              <dt className="dib b">Complaint By: </dt>
-              <dd className="dib ml1 gray">{data["Complaint by"]}</dd>
+              <dt className="dib b">Complaint by:</dt>
+              <dd className="dib ml1 gray">{data["Complaint"]}</dd>
             </dl>
             <dl className="f6 lh-title mv2">
               {imagesToDisplay}
