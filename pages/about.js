@@ -20,7 +20,7 @@ export default () => {
   return (
     <div>
     <h1>About</h1>
-    <footer class="pa3-l pa2 w-30">
+    <footer className="pa3-l pa2 w-30">
       <NoSSR onSSR={<Loading />} class="center pa3-l pa2 dib-l dn">
         <Timeline
           dataSource={{

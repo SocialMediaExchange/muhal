@@ -5,7 +5,7 @@ import React from 'react'
 
 
 const Layout = ({ children }) => (
-  <div class="sans-serif">
+  <div className="sans-serif">
     <Head>
       <title>Freedom of Expression</title>
       <meta charSet='utf-8' />

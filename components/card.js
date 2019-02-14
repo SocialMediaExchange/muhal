@@ -1,7 +1,13 @@
 import React from 'react'
 import Link from 'next/link'
-import { substr } from '../lib'
 import { has } from 'ramda'
+
+function substr(str, len) {
+  if (str && str.length > len) {
+    return `${str.substring(0, len)}..`
+  }
+  else return str
+}
 
 export default (record) => {
   const data = record.data

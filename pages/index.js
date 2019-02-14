@@ -3,7 +3,7 @@ import Search from '../components/searchbox'
 import Select from '../components/select'
 import Card from '../components/card'
 import fetch from 'isomorphic-unfetch'
-import {values, any, test, uniq, uniqBy, prop, includes} from 'ramda'
+import {values, any, test, uniq, uniqBy, prop} from 'ramda'
 
 function filterCases(searchText) {
   return caseData => {
