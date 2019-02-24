@@ -13,11 +13,13 @@ const Layout = ({ children }) => (
       <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
     </Head>
 
-    <div className="flex-l flex-m">
-      <segment className="vh-100-m vh-100-l avenir w-100 overflow-y-auto">
-        <header className="w-100 pa4 bg-gold">
+    <div className="flex-l flex-m rtl">
+      <main className="vh-100-m vh-100-l avenir w-100 overflow-y-auto">
+        <header className="w-100 pa4 bg-washed-yellow">
           <nav className="db dt-l w-100 border-box">
-            <a className="db dtc-l v-mid b black f3 link w-100 w-33-l tc tl-l mb2 mb0-l tracked-tight" href="/" title="Home">Muhal</a>
+            <a className="db dtc-l v-mid b black f3 link w-100 w-33-l tc tl-l mb2 mb0-l tracked-tight" href="/" title="Home">
+            <img src="/static/logo.svg" height="h3"/>
+            </a>
             <div className="db dtc-l v-mid w-100 w-75-l tc tr-l">
               <Link href="/"><a className="link dim black f6 ttu f5-l dib mr3 mr4-l" href="/" title="Cases">Cases</a></Link>
               <Link href="/about"><a className="link dim black f6 ttu f5-l dib mr3 mr4-l" href="/about" title="About">About</a></Link>
@@ -25,10 +27,10 @@ const Layout = ({ children }) => (
             </div>
           </nav>
         </header>
-        <div className="pa4-ns bt b--black-10">
+        <div className="pa4 bt b--black-10">
           {children}
         </div>
-      </segment>
+      </main>
     </div>
   </div>
 )
