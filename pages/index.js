@@ -3,7 +3,8 @@ import Search from '../components/searchbox'
 import Select from '../components/select'
 import Card from '../components/card'
 import fetch from 'isomorphic-unfetch'
-import {values, any, test, uniq, uniqBy, prop} from 'ramda'
+import {filter, values, any, test, uniq, uniqBy, prop} from 'ramda'
+import { notEmpty } from '../lib/utils'
 
 function filterCases(searchText) {
   return caseData => {
@@ -51,6 +52,7 @@ export default class extends React.Component {
         [label]: option.target.value === "None Selected"? null : option.target.value
       })
     }
+    
   }
 
   render() {
@@ -65,9 +67,9 @@ export default class extends React.Component {
       casesToDisplay = casesToDisplay.filter(filterCases(searchText))
     }
 
-    const mediumOptions = uniq(cases.map(prop("Platform")))
-    const yearOptions = uniq(cases.map(prop("Year")))
-    const complaintOptions = uniq(cases.map(prop("Complaint")))
+    const mediumOptions = uniq(filter(notEmpty, cases.map(prop("Platform")))).sort()
+    const yearOptions = uniq(filter(notEmpty, cases.map(prop("Year")))).sort()
+    const complaintOptions = uniq(filter(notEmpty, cases.map(prop("Complaint")))).sort()
 
     if (Year) {
       casesToDisplay = casesToDisplay.filter(data => data["Year"] === Year)
