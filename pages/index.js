@@ -56,7 +56,6 @@ export default class extends React.Component {
   render() {
     const { cases } = this.props
     const {searchText, Year, Medium, Complaint} = this.state
-    console.log(this.state)
     let casesToDisplay = cases;
 
     // Filter cases with the same primary
@@ -88,7 +87,7 @@ export default class extends React.Component {
       <div>
         <div className="flex flex-wrap">
           <Search onChange={this.onChange} searchText={searchText} />
-          <Select options={mediumOptions} selected={this.state["Medium"]} onChange={this.onSelect("Medium")} selectLabel="Medium" />
+          <Select options={mediumOptions} selected={this.state["Medium"]} onChange={this.onSelect("Medium")} selectLabel="Platform" />
           <Select options={yearOptions} selected={this.state["Year"]} onChange={this.onSelect("Year")} selectLabel="Year" />
           <Select options={complaintOptions} selected={this.state["Complaint"]} onChange={this.onSelect("Complaint")} selectLabel="Complaint by" />
         </div>
