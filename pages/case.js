@@ -47,7 +47,7 @@ export default class Case extends Component {
     return (
       <article>
         <section>
-          <h2>People</h2>
+          <h2>Defendants</h2>
           <div className="flex">
             {
               data["People"].map((person) => <Person key={person} person={person} />)
