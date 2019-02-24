@@ -1,72 +1,7 @@
 import React, {Component} from 'react'
+import {Accordion, Item} from '../components/accordion'
+import Person from '../components/person'
 import {has} from 'ramda'
-
-const en_people_fields = [
-  "First Name",
-  "Last Name",
-  "Nationality",
-  "Gender"
-]
-
-const Accordion = function ({title, children}) {
-  function accordionClick(e) {
-    e.currentTarget.classList.toggle("active");
-    var panel = e.currentTarget.childNodes[1];
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    }
-  }
-  return <section className="accordion" onClick={accordionClick}>
-    <style jsx>{`
-      .accordion {
-        background-color: #eee;
-        color: #444;
-        cursor: pointer;
-        padding: 10px;
-        width: 100%;
-        text-align: left;
-        border: none;
-        outline: none;
-        transition: 0.4s;
-        margin-bottom: 10px
-      }
-
-      .accordion:hover, .active {
-        background-color: #ccc;
-      }
-
-      .panel {
-        padding: 0 18px;
-        background-color: white;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.2s ease-out;
-      }
-    `}</style>
-    <h2>{title}</h2>
-    <div className="panel">
-      <dl className="lh-title pa2 mt0">
-        {children}
-      </dl>
-    </div>
-  </section>
-}
-
-const Item = function ({field, data}) {
-  let displayedData = data[field] || "N/A"
-  if (displayedData && displayedData.trim().length === 0) {
-    displayedData = "N/A"
-  }
-  return (
-    <div className="pb1" key={field}>
-      <dt className="f6 b dib mb2">{field + ":"}</dt>
-      <dd className="ml1 dib">{displayedData}</dd>
-    </div>
-  )
-}
-
 
 export default class Case extends Component {
   static async getInitialProps (ctx) {
@@ -86,7 +21,7 @@ export default class Case extends Component {
     }
   }
 
-  render () {
+  render() {
     if (!this.props.case.fields) {
       return <div>Loading...</div>
     }
@@ -97,11 +32,11 @@ export default class Case extends Component {
     if (attachments) {
       attachments.filter(has('thumbnails')).forEach(image => {
         imagesToDisplay.push(
-          <a class="db mw5 tc black link dim" href={image.url} key={image.url}>
-            <img class="db ba b--black-10" alt="" src={image.thumbnails.large.url} />
-            <dl class="mt2 f6 lh-copy">
-              <dt class="clip">Label</dt>
-              <dd class="ml0">Post picture</dd>
+          <a className="db mw5 tc black link dim" href={image.url} key={image.url}>
+            <img className="db ba b--black-10" alt="" src={image.thumbnails.large.url} />
+            <dl className="mt2 f6 lh-copy">
+              <dt className="clip">Label</dt>
+              <dd className="ml0">Post picture</dd>
             </dl>
           </a>
         )
@@ -115,18 +50,8 @@ export default class Case extends Component {
           <h2>People</h2>
           <div className="flex">
             {
-              data["People"].map((person) => {
-                let fields = en_people_fields.map((field) => {
-                  return (
-                    <div className="pb1" key={field}>
-                      <dt className="f6 b">{field}</dt>
-                      <dd className="ml0">{person[field]}</dd>
-                    </div>
-                  )
-                })
-                return <dl className="ml3 lh-title shadow-4 dib pa2 b--black-10 ba mw5 flex-auto">{fields}</dl>
-              })
-          }
+              data["People"].map((person) => <Person key={person} person={person} />)
+            }
           </div>
         </section>
         <section>

@@ -9,7 +9,7 @@ function substr(str, len) {
   else return str
 }
 
-export default (record) => {
+export default function Card (record) {
   const data = record.data
 
   // Images
@@ -20,7 +20,7 @@ export default (record) => {
     if (attachments) {
       attachments.filter(has('thumbnails')).forEach(image => {
         imagesToDisplay.push(
-          <img class="dib" alt="" src={image.thumbnails.small.url} />
+          <img className="dib" alt="" src={image.thumbnails.small.url} />
         )
       }
       )

@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Search from '../components/searchbox'
 import Select from '../components/select'
 import Card from '../components/card'
 import fetch from 'isomorphic-unfetch'
-import {filter, values, any, test, uniq, uniqBy, prop} from 'ramda'
+import { filter, values, any, test, uniq, uniqBy, prop } from 'ramda'
 import { notEmpty } from '../lib/utils'
 
 function filterCases(searchText) {
@@ -13,7 +13,7 @@ function filterCases(searchText) {
   }
 }
 
-export default class extends React.Component {
+export default class Home extends Component {
   static async getInitialProps(ctx) {
     const isServer = !!ctx.req
 

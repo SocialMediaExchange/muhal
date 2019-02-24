@@ -2,10 +2,11 @@ import React from 'react'
 import { Timeline } from 'react-twitter-widgets'
 import NoSSR from 'react-no-ssr'
 
-const Loading = () => (
-  <div>
-    <h3>Loading...</h3>
-    <style jsx>{`
+function Loading() {
+  return (
+    <div>
+      <h3>Loading...</h3>
+      <style jsx>{`
       div {
         align-items: center;
         display: flex;
@@ -13,10 +14,11 @@ const Loading = () => (
         justify-content: center;
       }
     `}</style>
-  </div>
-)
+    </div>
+  )
+}
 
-export default () => {
+export default function About () {
   return (
     <div>
     <h1>About</h1>
