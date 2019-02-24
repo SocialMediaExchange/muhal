@@ -7,7 +7,7 @@ import React from 'react'
 const Layout = ({ children }) => (
   <div className="sans-serif">
     <Head>
-      <title>Freedom of Expression</title>
+      <title>Muhal</title>
       <meta charSet='utf-8' />
       <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
@@ -17,7 +17,7 @@ const Layout = ({ children }) => (
       <segment className="vh-100-m vh-100-l avenir w-100 overflow-y-auto">
         <header className="w-100 pa4 bg-gold">
           <nav className="db dt-l w-100 border-box">
-            <a className="db dtc-l v-mid b black f3 link w-100 w-33-l tc tl-l mb2 mb0-l tracked-tight" href="/" title="Home">Freedom of Speech in Lebanon</a>
+            <a className="db dtc-l v-mid b black f3 link w-100 w-33-l tc tl-l mb2 mb0-l tracked-tight" href="/" title="Home">Muhal</a>
             <div className="db dtc-l v-mid w-100 w-75-l tc tr-l">
               <Link href="/"><a className="link dim black f6 ttu f5-l dib mr3 mr4-l" href="/" title="Cases">Cases</a></Link>
               <Link href="/about"><a className="link dim black f6 ttu f5-l dib mr3 mr4-l" href="/about" title="About">About</a></Link>

@@ -56,9 +56,10 @@ export default class Case extends Component {
         </section>
         <section>
           <h2>Case Information</h2>
-          <dl className="lh-title pa2 mt0">
+          <dl className="lh-title pa2 mt0 mw7">
             <Item field="Year" data={data} />
             <Item field="Description of the Case" data={data} />
+            <Item field="Status" data={data} />
           </dl>
         </section>
         <Accordion title="Expression of Opinion">
@@ -84,6 +85,7 @@ export default class Case extends Component {
           <Item field="Date of the post" data={data["Timeline"]} />
           <Item field="Date of contact from Cybercrime Bureau" data={data["Timeline"]} />
           <Item field="Date of investigation" data={data["Timeline"]} />
+          <Item field="Date of the detainment" data={data["Timeline"]} />
           <Item field="Time of the detainment" data={data["Timeline"]} />
           <Item field="Date of hearing" data={data["Timeline"]} />
           <Item field="Date of 2nd hearing" data={data["Timeline"]} />
@@ -102,6 +104,16 @@ export default class Case extends Component {
             imagesToDisplay.length > 0 ? imagesToDisplay : "N/A"
           }
         </section>
+        {
+          data["Source"]
+            ? (
+              <section>
+                <h2>Source</h2>
+                <a href={data["Source"]} >{data["Source"]}</a>
+              </section>
+            )
+            : <div />
+        }
       </article>
     )
   }

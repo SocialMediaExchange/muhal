@@ -60,6 +60,10 @@ export default class Home extends Component {
     const {searchText, Year, Medium, Complaint} = this.state
     let casesToDisplay = cases;
 
+    if (!casesToDisplay || !casesToDisplay.length) {
+      return <div />
+    }
+
     // Filter cases with the same primary
     casesToDisplay = uniqBy(prop('Primary'), casesToDisplay)
 
