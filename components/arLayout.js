@@ -25,7 +25,7 @@ export default function Layout({ children }) {
               <div className="db dtc-l v-mid w-100 w-75-l tc tl-l">
                 <Link href="/ar/cases"><a className="link dim black f5 ttu f4-l dib ml3 ml4-l" href="/ar/cases" title="Cases">قضايا</a></Link>
                 <Link href="/ar/about"><a className="link dim black f5 ttu f4-l dib ml3 ml4-l" href="/ar/about" title="About">معلومات</a></Link>
-                <Link href="/ar/report"><a className="link dim white bg-light-red br2 pa2 f5 f4-l dib b ttu ml4-l" href="/ar/report" title="Report">أبلغ عن قضية </a></Link>
+                <Link href="/ar/report"><a className="link dim white bg-light-red br2 pa2 f5 f4-l dib b ttu ml4-l" href="/ar/report" title="Report"> أبلغ/ي عن حالة</a></Link>
               </div>
             </nav>
           </header>
