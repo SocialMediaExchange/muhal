@@ -14,7 +14,7 @@ export default function Layout({ children }) {
         <main className="vh-100-m vh-100-l avenir w-100 overflow-y-auto">
           <header className="w-100 pa4 bg-washed-yellow">
             <nav className="db dt-l w-100 border-box">
-              <a className="db dtc-l v-mid b black f3 link w-100 w-33-l tc tl-l mb2 mb0-l tracked-tight" href="/" title="Home">
+              <a className="db dtc-l v-mid b black f3 link w-100 w-33-l tc tl-l mb2 mb0-l tracked-tight" href="/en/cases" title="Home">
                 <img src="/static/logo.svg" height="h3" />
               </a>
               <div className="db dtc-l v-mid w-100 w-75-l tc tr-l">

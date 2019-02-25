@@ -56,7 +56,7 @@ export default class Case extends Component {
           </div>
         </section>
         <section>
-          <h2>Case Information</h2>
+          <h2>تفاصيل</h2>
           <dl className="lh-title pa2 mt0 mw7">
             <Item ar ar field="Year" name="السنة" data={data} />
             <Item ar field="ماذا حصل؟" data={data} />
