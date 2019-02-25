@@ -11,6 +11,10 @@ const Layout = ({ children }) => (
       <meta charSet='utf-8' />
       <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
+      <link rel="shortcut icon" type="image/ico" href="/static/favicon.ico" />
+      <link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32" />
+      <link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16" />
+
     </Head>
 
     <div className="flex-l flex-m rtl">
