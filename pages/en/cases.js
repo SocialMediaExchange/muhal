@@ -1,17 +1,11 @@
 import React, { Component } from 'react'
-import Search from '../components/searchbox'
-import Select from '../components/select'
-import Card from '../components/card'
+import Layout from '../../components/enLayout'
+import Search from '../../components/searchbox'
+import Select from '../../components/select'
+import Card from '../../components/card'
 import fetch from 'isomorphic-unfetch'
-import { filter, values, any, test, uniq, uniqBy, prop } from 'ramda'
-import { notEmpty } from '../lib/utils'
-
-function filterCases(searchText) {
-  return caseData => {
-    const testSearch = test(new RegExp(searchText, 'ig'))
-    return any(testSearch, values(caseData))
-  }
-}
+import { filter, uniq, uniqBy, prop } from 'ramda'
+import { notEmpty, filterCases } from '../../lib/utils'
 
 export default class Home extends Component {
   static async getInitialProps(ctx) {
@@ -23,7 +17,7 @@ export default class Home extends Component {
     else {
       const res = await fetch('/_data/cases', {headers: {'Accept': 'application/json'}})
       const json = await res.json()
-      return json
+      return { cases: json}
     }
   }
 
@@ -61,7 +55,7 @@ export default class Home extends Component {
     let casesToDisplay = cases;
 
     if (!casesToDisplay || !casesToDisplay.length) {
-      return <div />
+      return <Layout><div>Loading...</div></Layout>
     }
 
     // Filter cases with the same primary
@@ -90,7 +84,7 @@ export default class Home extends Component {
     }
 
     return (
-      <div>
+      <Layout>
         <div className="flex flex-wrap">
           <Search onChange={this.onChange} searchText={searchText} />
           <Select options={mediumOptions} selected={this.state["Medium"]} onChange={this.onSelect("Medium")} selectLabel="Platform" />
@@ -100,7 +94,7 @@ export default class Home extends Component {
         <div className="flex flex-wrap">
           {casesToDisplay.map(data => <Card data={data} key={data.id}/>)}
         </div>
-      </div>
+      </Layout>
     )
   }
 }

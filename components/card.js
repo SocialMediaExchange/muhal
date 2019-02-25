@@ -1,17 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 import { has } from 'ramda'
+import { substr } from '../lib/utils'
 
-function substr(str, len) {
-  if (str && str.length > len) {
-    return `${str.substring(0, len)}..`
-  }
-  else return str
-}
-
-export default function Card (record) {
-  const data = record.data
-
+export default function Card ({data, ar}) {
   // Images
   const imageLabels = ["Post picture", "Language in Question", "Image of the sentence"]
   let imagesToDisplay = []
@@ -26,24 +18,35 @@ export default function Card (record) {
       )
     }
   })
+
+  // Labels
+  let platform = "Platform:"
+  let complaint = "Complaint by:"
+  let ddClass = "dib ml1 gray"
+
+  if (ar) {
+    platform = "منصة:"
+    complaint = "الجهة المدعية:"
+    ddClass = "dib mr1 gray"
+  }
   
   return (
-    <Link href={`/cases/${data.id}`}>
+    <Link href={`/en/cases/${data.id}`}>
     <a style={{"textDecoration": "none", "color": "black"}} className="mv4 mh3">
         <article className="bg-white shadow-4 pointer grow db min-h-100 mw5-ns hidden ba b--black-10">
           <div className="pa3 bt b--black-10">
             <dl className="f6 lh-title mv2">
-              <dt className="dib b">Platform:</dt>
-              <dd className="dib ml1 gray">{data["Platform"]}</dd>
+              <dt className="dib b">{platform}</dt>
+              <dd className={ddClass}>{data["Platform"]}</dd>
             </dl>
             <dl className="f6 lh-title mv2">
-              <dt className="dib b">Complaint by:</dt>
-              <dd className="dib ml1 gray">{data["Complaint"]}</dd>
+              <dt className="dib b">{complaint}</dt>
+              <dd className={ddClass}>{data["Complaint_ar"]}</dd>
             </dl>
             <dl className="f6 lh-title mv2">
               {imagesToDisplay}
             </dl>
-            <p className="f6 f5-ns lh-copy measure">{substr(data["Description of the Case"], 130)}</p>
+            <p className="f6 f5-ns lh-copy measure">{substr(data["ماذا حصل؟"], 130)}</p>
             <h1 className="f4 bg-near-white br--top black-80 mv0 pv2 ph3 tracked-tight">{data.Primary}</h1>
           </div>
         </article>

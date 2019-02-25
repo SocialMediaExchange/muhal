@@ -12,6 +12,8 @@ app.prepare()
   .then(() => {
     const server = express()
 
+    server.get('/', (req, res) => res.redirect('/ar/cases'))
+
     server.get('/_data/cases', (req, res) => {
       getCases(100, function (err, records) {
         return res.json(records)
@@ -25,23 +27,44 @@ app.prepare()
       })
     })
 
-    server.get('/cases/:id', (req, res) => {
+    server.get('/en/cases/:id', (req, res) => {
       const id = req.params.id
       getCase(id, function (err, record) {
         if (err) {
-          return app.render(req, res, "/case", { case: {}, id })
+          return app.render(req, res, "/en/case", { case: {}, id })
         } else {
-          return app.render(req, res, "/case", { case: record, id })
+          return app.render(req, res, "/en/case", { case: record, id })
         }
       })
     })
 
-    server.get('/', (req, res) => {
+    server.get('/ar/cases/:id', (req, res) => {
+      const id = req.params.id
+      getCase(id, function (err, record) {
+        if (err) {
+          return app.render(req, res, "/ar/case", { case: {}, id })
+        } else {
+          return app.render(req, res, "/ar/case", { case: record, id })
+        }
+      })
+    })
+
+    server.get('/en/cases', (req, res) => {
       getCases(100, function (err, records) {
         if (err) {
-          return app.render(req, res, "/", { cases: [] })
+          return app.render(req, res, "/en/cases", { cases: [] })
         } else {
-          return app.render(req, res, "/", { cases: records })
+          return app.render(req, res, "/en/cases", { cases: records })
+        }
+      })
+    })
+
+    server.get('/ar/cases', (req, res) => {
+      getCases(100, function (err, records) {
+        if (err) {
+          return app.render(req, res, "/ar/cases", { cases: [] })
+        } else {
+          return app.render(req, res, "/ar/cases", { cases: records })
         }
       })
     })
