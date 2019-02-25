@@ -30,6 +30,13 @@ export default function Layout({ children }) {
           <div className="pa4 bt b--black-10">
             {children}
           </div>
+          <footer className="h4 bg-washed-yellow flex flex-column">
+            <div className="pa3 pb0">
+              <p>Copyright © 2019 SMEX</p>
+              <a className="db" href="https://smex.org">SMEX website</a> 
+              <Link href="/ar/cases"><a href="/ar/cases">عرض هذا الموقع باللغة العربية</a></Link>
+            </div>
+          </footer>
         </main>
       </div>
     </div>
