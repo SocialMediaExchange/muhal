@@ -5,14 +5,10 @@ import React from 'react'
 
 export default function Layout({ children }) {
   return (
-    <div className="sans-serif">
+    <div>
       <Head>
         <title>محال</title> 
-        <meta lang="ar" />
-        <meta charSet='utf-8' />
-        <meta name='viewport' content='ini</meta>tial-scale=1.0, width=device-width' />
         <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet" /> 
-        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
       </Head>
 
       <div className="flex-l flex-m" style={{"direction": "rtl", "fontFamily": "Tajawal, sans-serif"}}>

@@ -5,12 +5,9 @@ import React from 'react'
 
 export default function Layout({ children }) {
   return (
-    <div className="sans-serif">
+    <div>
       <Head>
         <title>Muhal</title>
-        <meta charSet='utf-8' />
-        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
       </Head>
 
       <div className="flex-l flex-m">
