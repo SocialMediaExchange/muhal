@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function Accordion ({title, children}) {
+export function Accordion ({title, children, ar}) {
   function accordionClick(e) {
     e.currentTarget.classList.toggle("active");
     var panel = e.currentTarget.childNodes[1];
@@ -10,7 +10,11 @@ export function Accordion ({title, children}) {
       panel.style.maxHeight = panel.scrollHeight + "px";
     }
   }
-  return <section className="accordion" onClick={accordionClick}>
+  return <section className="accordion" onClick={accordionClick} style={
+    {
+      "textAlign": ar ? "right": "left"
+    }
+  }>
     <style jsx>{`
       .accordion {
         background-color: #eee;
@@ -18,7 +22,6 @@ export function Accordion ({title, children}) {
         cursor: pointer;
         padding: 10px;
         width: 100%;
-        text-align: left;
         border: none;
         outline: none;
         transition: 0.4s;
@@ -46,15 +49,21 @@ export function Accordion ({title, children}) {
   </section>
 }
 
-export function Item ({field, data}) {
+export function Item ({field, data, name, ar}) {
   let displayedData = data[field] || "N/A"
+  let displayName = name ? name : field
+  let itemClass = "ml1 dib"
+
+  if (ar) {
+    itemClass = "mr1 dib"
+  }
   if (displayedData && displayedData.trim().length === 0) {
     displayedData = "N/A"
   }
   return (
     <div className="pb1" key={field}>
-      <dt className="f6 b dib mb2">{field + ":"}</dt>
-      <dd className="ml1 dib">{displayedData}</dd>
+      <dt className="f6 b dib mb2">{displayName + ":"}</dt>
+      <dd className={itemClass}>{displayedData}</dd>
     </div>
   )
 }

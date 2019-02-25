@@ -65,7 +65,7 @@ export default class Home extends Component {
       casesToDisplay = casesToDisplay.filter(filterCases(searchText))
     }
 
-    const mediumOptions = uniq(filter(notEmpty, cases.map(prop("Platform")))).sort()
+    const mediumOptions = uniq(filter(notEmpty, cases.map(prop("المنصة")))).sort()
     const yearOptions = uniq(filter(notEmpty, cases.map(prop("Year")))).sort()
     const complaintOptions = uniq(filter(notEmpty, cases.map(prop("Complaint_ar")))).sort()
 
@@ -74,7 +74,7 @@ export default class Home extends Component {
     }
 
     if (Medium) {
-      casesToDisplay = casesToDisplay.filter(data => data["Platform"] === Medium)
+      casesToDisplay = casesToDisplay.filter(data => data["المنصة"] === Medium)
     }
 
     if (Complaint) {

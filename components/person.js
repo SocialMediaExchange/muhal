@@ -7,13 +7,26 @@ const en_people_fields = [
   "Gender"
 ]
 
+const ar_people_fields = [
+  "الاسم الأول",
+  "اسم العائلة",
+  "الجنسية",
+  "الجنس"
+]
 
-export default function Person({ person }) {
-  let fields = en_people_fields.map((field, i) => {
+
+export default function Person({ person, ar }) {
+  let fieldsToChoose = en_people_fields
+  let itemClass = "ml0"
+  if (ar) {
+    fieldsToChoose = ar_people_fields
+    itemClass = "mr0"
+  }
+  let fields = fieldsToChoose.map((field, i) => {
     return (
       <div key={field} className="pb1" >
         <dt className="f6 b">{field}</dt>
-        <dd className="ml0">{person[field]}</dd>
+        <dd className={itemClass}>{person[field]}</dd>
       </div>
     )
   })

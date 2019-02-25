@@ -23,30 +23,41 @@ export default function Card ({data, ar}) {
   let platform = "Platform:"
   let complaint = "Complaint by:"
   let ddClass = "dib ml1 gray"
+  let link = `/en/cases/${data.id}`
+
+  // data
+  let platformData = data["Platform"]
+  let complaintData = data["Complaint"]
+  let description = data["Description of the Case"]
 
   if (ar) {
     platform = "منصة:"
     complaint = "الجهة المدعية:"
     ddClass = "dib mr1 gray"
+    link = `/ar/cases/${data.id}`
+
+    platformData = data["المنصة"]
+    complaintData = data["Complaint_ar"]
+    description = data["ماذا حصل؟"]
   }
   
   return (
-    <Link href={`/en/cases/${data.id}`}>
+    <Link href={link}>
     <a style={{"textDecoration": "none", "color": "black"}} className="mv4 mh3">
         <article className="bg-white shadow-4 pointer grow db min-h-100 mw5-ns hidden ba b--black-10">
           <div className="pa3 bt b--black-10">
             <dl className="f6 lh-title mv2">
               <dt className="dib b">{platform}</dt>
-              <dd className={ddClass}>{data["Platform"]}</dd>
+              <dd className={ddClass}>{platformData}</dd>
             </dl>
             <dl className="f6 lh-title mv2">
               <dt className="dib b">{complaint}</dt>
-              <dd className={ddClass}>{data["Complaint_ar"]}</dd>
+              <dd className={ddClass}>{complaintData}</dd>
             </dl>
             <dl className="f6 lh-title mv2">
               {imagesToDisplay}
             </dl>
-            <p className="f6 f5-ns lh-copy measure">{substr(data["ماذا حصل؟"], 130)}</p>
+            <p className="f6 f5-ns lh-copy measure">{substr(description, 130)}</p>
             <h1 className="f4 bg-near-white br--top black-80 mv0 pv2 ph3 tracked-tight">{data.Primary}</h1>
           </div>
         </article>
