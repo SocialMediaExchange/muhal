@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import {Accordion, Item} from '../components/accordion'
-import Person from '../components/person'
+import {Accordion, Item} from '../../components/accordion'
+import Layout from '../../components/enLayout'
+import Person from '../../components/person'
 import {has} from 'ramda'
 
 export default class Case extends Component {
@@ -22,8 +23,8 @@ export default class Case extends Component {
   }
 
   render() {
-    if (!this.props.case.fields) {
-      return <div>Loading...</div>
+    if (!this.props.case || !this.props.case.fields) {
+      return <Layout><div>Loading...</div></Layout>
     }
     const data = this.props.case.fields
 
@@ -45,7 +46,7 @@ export default class Case extends Component {
     }
 
     return (
-      <article>
+      <Layout>
         <section>
           <h2>Defendants</h2>
           <div className="flex">
@@ -114,7 +115,7 @@ export default class Case extends Component {
             )
             : <div />
         }
-      </article>
+      </Layout>
     )
   }
 }

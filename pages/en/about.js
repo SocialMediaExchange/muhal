@@ -1,5 +1,6 @@
 import React from 'react'
 import { Timeline } from 'react-twitter-widgets'
+import Layout from '../../components/enLayout'
 import Link from 'next/link'
 import NoSSR from 'react-no-ssr'
 
@@ -21,7 +22,7 @@ function Loading() {
 
 export default function About () {
   return (
-    <div>
+    <Layout>
       <h1>About</h1>
       <h2>What’s Wrong?</h2>
       <p className="measure-copy mw7">
@@ -40,7 +41,7 @@ export default function About () {
     </p>
       <h2>Get Involved</h2>
       <p className="measure-copy mw7">
-        If you or someone you know has been detained by the authorities regarding posts on social media, <Link href="/report"><a href="/report">report a case</a></Link> by filling in the form and we will upload it to the database.
+        If you or someone you know has been detained by the authorities regarding posts on social media, <Link href="/en/report"><a href="/report">report a case</a></Link> by filling in the form and we will upload it to the database.
         </p>
 
 
@@ -58,6 +59,6 @@ export default function About () {
           />
         </NoSSR>
       </footer>
-    </div>
+    </Layout>
   )
 }
