@@ -1,6 +1,5 @@
 
 import Head from 'next/head'
-import Link from 'next/link'
 import React from 'react'
 
 export default function Layout({ children }) {
@@ -18,10 +17,10 @@ export default function Layout({ children }) {
                 <img src="/static/logo_en.svg" height="h3" />
               </a>
               <div className="db dtc-l v-mid w-100 w-75-l tc tr-l">
-                <Link href="/ar/cases"><a className="link dim black f5 ttu f4-l dib mr3 mr4-l" href="/ar/cases" title="AR">ع</a></Link>
-                <Link href="/en/cases"><a className="link dim black f6 ttu f5-l dib mr3 mr4-l" href="/en/cases" title="Cases">Cases</a></Link>
-                <Link href="/en/about"><a className="link dim black f6 ttu f5-l dib mr3 mr4-l" href="/en/about" title="About">About</a></Link>
-                <Link href="/en/report"><a className="link dim white bg-light-red br2 pa2 f6 f5-l dib b ttu" href="/en/report" title="Report">Report Issue</a></Link>
+                <a className="link dim black f5 ttu f4-l dib mr3 mr4-l" href="/ar/cases" title="AR">ع</a>
+                <a className="link dim black f6 ttu f5-l dib mr3 mr4-l" href="/en/cases" title="Cases">Cases</a>
+                <a className="link dim black f6 ttu f5-l dib mr3 mr4-l" href="/en/about" title="About">About</a>
+                <a className="link dim white bg-light-red br2 pa2 f6 f5-l dib b ttu" href="/en/report" title="Report">Report Issue</a>
               </div>
             </nav>
           </header>
