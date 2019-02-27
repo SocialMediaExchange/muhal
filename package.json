@@ -7,7 +7,7 @@
     "dev": "node index.js",
     "build": "next build",
     "start": "NODE_ENV=production node index.js",
-    "export": "NODE_ENV=production next export && cp _redirects out/_redirects",
+    "export": "NODE_ENV=production next export",
     "heroku-postbuild": "next build"
   },
   "keywords": [],

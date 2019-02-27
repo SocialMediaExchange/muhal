@@ -20,9 +20,12 @@ module.exports = {
     }
 
     return Object.assign(casePaths, {
+      '/': { page: '/ar/cases', query: { cases }},
+      '/ar': { page: '/ar/cases', query: { cases }},
       '/ar/cases': { page: '/ar/cases', query: { cases }},
       '/ar/about': { page: '/ar/about'},
       '/ar/report': { page: '/ar/report'},
+      '/en': { page: '/en/cases', query: { cases }},
       '/en/cases': { page: '/en/cases', query: { cases }},
       '/en/about': { page: '/en/about'},
       '/en/report': { page: '/en/report'}
