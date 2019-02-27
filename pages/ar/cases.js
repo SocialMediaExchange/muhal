@@ -65,7 +65,7 @@ export default class Home extends Component {
       casesToDisplay = casesToDisplay.filter(filterCases(searchText))
     }
 
-    const mediumOptions = uniq(filter(notEmpty, cases.map(prop("المنصة")))).sort()
+    const mediumOptions = uniq(filter(notEmpty, cases.map(prop("وسيلة النشر")))).sort()
     const yearOptions = uniq(filter(notEmpty, cases.map(prop("Year")))).sort()
     const complaintOptions = uniq(filter(notEmpty, cases.map(prop("Complaint_ar")))).sort()
 
@@ -74,7 +74,7 @@ export default class Home extends Component {
     }
 
     if (Medium) {
-      casesToDisplay = casesToDisplay.filter(data => data["المنصة"] === Medium)
+      casesToDisplay = casesToDisplay.filter(data => data["وسيلة النشر"] === Medium)
     }
 
     if (Complaint) {
@@ -87,9 +87,9 @@ export default class Home extends Component {
       <Layout>
         <div className="flex flex-wrap">
           <Search onChange={this.onChange} searchText={searchText} ar/>
-          <Select ar options={mediumOptions} selected={this.state["Medium"]} onChange={this.onSelect("Medium")} selectLabel="منصة" />
-          <Select ar options={yearOptions} selected={this.state["Year"]} onChange={this.onSelect("Year")} selectLabel="سنة" />
-          <Select ar options={complaintOptions} selected={this.state["Complaint"]} onChange={this.onSelect("Complaint")} selectLabel="الجهة المدعية:"/>
+          <Select ar options={mediumOptions} selected={this.state["Medium"]} onChange={this.onSelect("Medium")} selectLabel="وسيلة النشر" />
+          <Select ar options={yearOptions} selected={this.state["Year"]} onChange={this.onSelect("Year")} selectLabel="السنة" />
+          <Select ar options={complaintOptions} selected={this.state["Complaint"]} onChange={this.onSelect("Complaint")} selectLabel="الجهة المدعية"/>
         </div>
         <div className="flex flex-wrap">
           {casesToDisplay.map(data => <Card data={data} key={data.id} ar/>)}

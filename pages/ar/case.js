@@ -48,7 +48,7 @@ export default class Case extends Component {
     return (
       <Layout>
         <section>
-          <h2>المتهمين</h2>
+          <h2>المتهم</h2>
           <div className="flex">
             {
               data["People"].map((person) => <Person ar key={person} person={person} />)
@@ -66,7 +66,7 @@ export default class Case extends Component {
         <Accordion ar title="التعبير عن الرأي">
           <Item ar field="التهمة" data={data["Expression of Opinion"]} />
           <Item ar field="اتهم (ت) بموجب (قانون، المادة)" data={data["Expression of Opinion"]} />
-          <Item ar field="المنصة" data={data} />
+          <Item ar field="وسيلة النشر" data={data} />
           <div className="pb1" key="Complaint by">
             <dt className="f6 b dib mb2">الجهة المدعية:</dt>
             <dd className="mr1 dib">{data["Complaint_ar"][0]}</dd>
@@ -92,14 +92,14 @@ export default class Case extends Component {
           <Item ar field="تاريخ الإفراج) إن وجد)" data={data["Timeline"]} />
           <Item ar field="تاريخ الحكم" data={data["Timeline"]} />
         </Accordion>
-        <Accordion ar title="معلومات المحكمة / الشرطة">
+        <Accordion ar title=" معلومات عن المحكمة/المخفر">
           <Item ar field="اسم المحكمة/المخفر" data={data["Court/police station information"]} />
           <Item ar field="منصب القاضي/القاضية" data={data["Court/police station information"]} />
           <Item ar field="اسم القاضي/القاضية" data={data["Court/police station information"]} />
           <Item ar field="موقع المحكمة /المخفر" data={data["Court/police station information"]} />
         </Accordion>
         <section>
-          <h2>المحتوى</h2>
+          <h2>محتوى موضع السؤال</h2>
           {
             imagesToDisplay.length > 0 ? imagesToDisplay : "N/A"
           }

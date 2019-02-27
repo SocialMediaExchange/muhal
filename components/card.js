@@ -29,16 +29,18 @@ export default function Card ({data, ar}) {
   let platformData = data["Platform"]
   let complaintData = data["Complaint"]
   let description = data["Description of the Case"]
+  let name = data["Primary"]
 
   if (ar) {
-    platform = "منصة:"
+    platform = "وسيلة النشر:"
     complaint = "الجهة المدعية:"
     ddClass = "dib mr1 gray"
     link = `/ar/cases/${data.id}`
 
-    platformData = data["المنصة"]
+    platformData = data["وسيلة النشر"]
     complaintData = data["Complaint_ar"]
     description = data["ماذا حصل؟"]
+    name = `${data["Name_ar"]} - ${data["Year"]}`
   }
   
   return (
@@ -58,7 +60,7 @@ export default function Card ({data, ar}) {
               {imagesToDisplay}
             </dl>
             <p className="f6 f5-ns lh-copy measure">{substr(description, 130)}</p>
-            <h1 className="f4 bg-near-white br--top black-80 mv0 pv2 ph3 tracked-tight">{data.Primary}</h1>
+            <h1 className="f4 bg-near-white br--top black-80 mv0 pv2 ph3 tracked-tight">{name}</h1>
           </div>
         </article>
       </a>
