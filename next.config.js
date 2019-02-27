@@ -1,9 +1,33 @@
 require('dotenv').config()
 
 const path = require('path')
+const pify = require('pify')
+const { getCases, getCase } = require('./lib');
+
 const Dotenv = require('dotenv-webpack')
 
 module.exports = {
+  exportPathMap: async function () {
+    let cases = await pify(getCases)(100)
+
+    let casePaths = {}
+    for (let i=0; i < cases.length; i++) {
+      let caseId = cases[i].id
+      console.log(caseId)
+      let caseData = await pify(getCase)(caseId)
+      casePaths[`/ar/cases/${caseId}`] = { page: '/ar/case', query: { case: caseData } }
+      casePaths[`/en/cases/${caseId}`] = { page: '/en/case', query: { case: caseData } }
+    }
+
+    return Object.assign(casePaths, {
+      '/ar/cases': { page: '/ar/cases', query: { cases }},
+      '/ar/about': { page: '/ar/about'},
+      '/ar/report': { page: '/ar/report'},
+      '/en/cases': { page: '/en/cases', query: { cases }},
+      '/en/about': { page: '/en/about'},
+      '/en/report': { page: '/en/report'}
+    })
+  },
   webpack: (config) => {
     config.plugins = config.plugins || []
 
