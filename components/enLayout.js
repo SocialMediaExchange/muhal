@@ -9,8 +9,8 @@ export default function Layout({ children }) {
         <title>Muhal</title>
       </Head>
 
-      <div className="flex-l flex-m">
-        <main className="vh-100-m vh-100-l avenir w-100 overflow-y-auto">
+      <div className="flex-l flex-m flex-column">
+        <main className="avenir w-100 overflow-y-auto flex-auto">
           <header className="w-100 pa4 bg-washed-yellow">
             <nav className="db dt-l w-100 border-box">
               <a className="db dtc-l v-mid b black f3 link w-100 w-33-l tc tl-l mb2 mb0-l tracked-tight" href="/en/cases" title="Home">
@@ -24,15 +24,15 @@ export default function Layout({ children }) {
               </div>
             </nav>
           </header>
-          <div className="pa4 bt b--black-10">
+          <div className="pa4 bt b--black-10 mw8 center">
             {children}
           </div>
-          <footer className="h2 bg-washed-yellow flex flex-column">
-            <div className="pa3 pb0">
-              <p>Copyright © 2019 <a href="http://smex.org">SMEX</a></p>
-            </div>
-          </footer>
         </main>
+        <footer className="h3 bg-washed-yellow flex">
+          <div className="pa3 pb0">
+            <p>Copyright © 2019 <a href="http://smex.org">SMEX</a></p>
+          </div>
+        </footer>
       </div>
     </div>
   )
