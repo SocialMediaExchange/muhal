@@ -5,9 +5,26 @@ const pify = require('pify')
 const { getCases, getCase } = require('./lib');
 
 const Dotenv = require('dotenv-webpack')
+let exportObj = {
+  webpack: (config) => {
+    config.plugins = config.plugins || []
 
-module.exports = {
-  exportPathMap: async function () {
+    config.plugins = [
+      ...config.plugins,
+
+      // Read the .env file
+      new Dotenv({
+        path: path.join(__dirname, '.env'),
+        systemvars: true
+      })
+    ]
+
+    return config
+  }
+}
+
+if (process.env.NODE_ENV === 'production') {
+  exports.exportPathMap = async function () {
     let cases = await pify(getCases)(100)
 
     let casePaths = {}
@@ -30,20 +47,7 @@ module.exports = {
       '/en/about': { page: '/en/about'},
       '/en/report': { page: '/en/report'}
     })
-  },
-  webpack: (config) => {
-    config.plugins = config.plugins || []
-
-    config.plugins = [
-      ...config.plugins,
-
-      // Read the .env file
-      new Dotenv({
-        path: path.join(__dirname, '.env'),
-        systemvars: true
-      })
-    ]
-
-    return config
   }
 }
+
+module.exports = exportObj
