@@ -21,7 +21,7 @@ export default function Layout({ children }) {
                 <a className="link dim black f5 ttu f4-l dib ml3 ml4-l" href="/en/cases" title="EN">EN</a>
                 <a className="link dim black f5 ttu f4-l dib ml3 ml4-l" href="/ar/cases" title="Cases">قضايا</a>
                 <a className="link dim black f5 ttu f4-l dib ml3 ml4-l" href="/ar/about" title="About">نبذة عن الموقع</a>
-                <a className="link dim white bg-light-red br2 pa2 f5 f4-l dib b ttu ml4-l" href="/ar/report" title="Report"> أبلغ/ي عن حالة</a>
+                <a className="link dim white bg-light-red br2 pa2 f5 f4-l dib b ttu ml4-l" href="/ar/report" title="Report"> بلّغ/ي عن حالة </a>
               </div>
             </nav>
           </header>
