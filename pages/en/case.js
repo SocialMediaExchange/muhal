@@ -69,7 +69,7 @@ export default class Case extends Component {
           <Item field="Platform" data={data} />
           <div className="pb1" key="Complaint by">
             <dt className="f6 b dib mb2">Complaint by:</dt>
-            <dd className="ml1 dib">{data["Complaint"][0]}</dd>
+            <dd className="ml1 dib">{data["Complaint"]}</dd>
           </div>
         </Accordion>
         <Accordion title="Investigation and Detention">

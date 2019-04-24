@@ -69,7 +69,7 @@ export default class Case extends Component {
           <Item ar field="وسيلة النشر" data={data} />
           <div className="pb1" key="Complaint by">
             <dt className="f6 b dib mb2">الجهة المدعية:</dt>
-            <dd className="mr1 dib">{data["Complaint_ar"][0]}</dd>
+            <dd className="mr1 dib">{data["Complaint_ar"]}</dd>
           </div>
         </Accordion>
         <Accordion ar title="التحقيق والاحتجاز">
