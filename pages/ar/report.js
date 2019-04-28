@@ -33,18 +33,7 @@ export default class Report extends Component {
       <Layout>
       <h1>أبلغ/ي عن حالة</h1>
         <form>
-          <div className="mb3">
-            <label htmlFor="defendant" className="db">المتهم</label>
-            <input className="w-80 ma2" type="text" name="defendant" placeholder="" onChange={this.onInputChange("defendant")}/>
-          </div>
-          <div className="mb3">
-            <label htmlFor="complaint_by" className="db">الجهة المدعية</label>
-            <input className="w-80 ma2" type="text" name="complaint" placeholder="" onChange={this.onInputChange("complaint")}/>
-          </div>
-          <div className="mb3">
-            <label htmlFor="complaint_by" className="db">ماذا حصل؟</label>
-            <textarea className="w-80 ma2" maxLength={1000} rows={6} name="description" placeholder="" onChange={this.onInputChange("description")} />
-          </div>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf3j5LDt2FloX18Q964euoZzD9__K_eMyh8HQMqlgp7Wy6g9Q/viewform?embedded=true" width="640" height="1623" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 
           <a className="btn btn-primary" href={mailto} >مراسلتنا عبر بريد الإلكتروني</a>
         </form>

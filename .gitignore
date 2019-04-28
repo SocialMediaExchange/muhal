@@ -1,4 +1,4 @@
-node_modules
-.next
-.env
-out
+**/*node_modules
+**/*.next
+**/*.env
+**/*out

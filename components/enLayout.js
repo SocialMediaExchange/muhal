@@ -24,7 +24,7 @@ export default function Layout({ children }) {
               </div>
             </nav>
           </header>
-          <div className="pa4 bt b--black-10 mw8 center">
+          <div className="pa4 bt b--black-10 mw8 center" style={{"background-color": "#ba365d"}}>
             {children}
           </div>
         </main>
