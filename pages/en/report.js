@@ -1,43 +1,60 @@
-import React, { Component } from 'react'
-import Layout from '../../components/enLayout'
+import React, { Component } from "react";
+import Layout from "../../components/enLayout";
 
 export default class Report extends Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
-      defendant: '',
-      description: '',
-      complaint: ''
-    }
+      defendant: "",
+      description: "",
+      complaint: ""
+    };
 
-    this.onInputChange = this.onInputChange.bind(this)
+    this.onInputChange = this.onInputChange.bind(this);
   }
 
-  onInputChange (label) {
-    let component = this
-    return function (e) {
+  onInputChange(label) {
+    let component = this;
+    return function(e) {
       component.setState({
-        [label]: e.target.value,
-      })
-    }
+        [label]: e.target.value
+      });
+    };
   }
 
   render() {
-    let body = ''
-    body += `Defendant:\n ${this.state.defendant}\n\n`
-    body += `Complaint By:\n ${this.state.complaint}\n\n`
-    body += `Description:\n ${this.state.description}\n\n`
-    const mailto = `mailto:info@smex.org?subject=${encodeURIComponent('Report from Muhal')}&body=${encodeURIComponent(body)}`
+    let body = "";
+    body += `Defendant:\n ${this.state.defendant}\n\n`;
+    body += `Complaint By:\n ${this.state.complaint}\n\n`;
+    body += `Description:\n ${this.state.description}\n\n`;
+    const mailto = `mailto:info@smex.org?subject=${encodeURIComponent(
+      "Report from Muhal"
+    )}&body=${encodeURIComponent(body)}`;
 
     return (
       <Layout>
-        <h1>Report a case</h1>
-        <form style={{"direction": "ltr"}}>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScICsFJGOyvCR-DlKQs1SXCcbs9xgy6AYmIOe1My0AqEUrSTA/viewform?embedded=true" width="640" height="1623" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-
-          <a className="btn btn-primary" href={mailto} >Send us an email</a>
+        <h1
+          className="ml4 pa3 dib  br4 white"
+          style={{ background: "#ba365d" }}
+        >
+          Report a case
+        </h1>
+        <form className="pl5 bg-washed-yellow" style={{ direction: "ltr" }}>
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLScICsFJGOyvCR-DlKQs1SXCcbs9xgy6AYmIOe1My0AqEUrSTA/viewform?embedded=true"
+            width="640"
+            height="1623"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+          >
+            Loading...
+          </iframe>
         </form>
+        <a className="btn btn-primary ml5" href={mailto}>
+            Send us an email
+          </a>
       </Layout>
-    )
+    );
   }
 }
