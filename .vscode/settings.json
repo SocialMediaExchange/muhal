@@ -1,0 +1,9 @@
+{
+    "files.exclude": {
+        "**/*.env": true,
+        "**/*.next": true,
+        "**/*node_modules": true,
+        "**/*package-lock.json": true,
+        "**/*.vscode" : true
+    }
+}

@@ -16,29 +16,19 @@ export default function SearchBox({ searchText, onChange, ar }) {
       onSubmit={e => e.preventDefault()}
     >
       <div className="measure">
-        <label htmlFor="name" className="f3 b db mb2 white ">
+        <label htmlFor="name" className="f3 b db ml2 mb2 white ">
           {label}
         </label>
         <div>
           <input
             id="name"
-            className="input-reset ba b--black-10 pa2 mb2  db w-90 br-pill bg-white" 
+            className="input-reset ba b--black-10 pa2 ml2 mb2  db w-90 br-pill bg-white" 
             type="text"
             aria-describedby="name-desc"
             onChange={onChange}
             value={searchText}
           />
-         { /* <span className="serach"
-            style={{
-              position: "absolute",
-              top: "185px",
-              right: "415px",
-              "font-size": "18px",
-              color: "#ba365d"
-            }}
-          >
-            <FaSearch />
-          </span> */}
+         
         </div>
       </div>
     </form>

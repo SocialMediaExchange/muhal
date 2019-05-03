@@ -30,7 +30,7 @@ export default function Layout({ children }) {
               <div
                 className="db dtc-l v-mid w-100 w-75-l tc tl-l "
                 style={{
-                  backgroundImage: "url(" + "../static/wer.png" + ")",
+                  backgroundImage: "url(" + "../static/nav-logo.png" + ")",
                   backgroundPosition: "center center",
                   backgroundSize: "cover",
                   backgroundRepeat: "no-repeat"
@@ -66,7 +66,7 @@ export default function Layout({ children }) {
                   href="/ar/report"
                   title="Report"
                 >
-                  {" "}
+                  
                   بلّغ/ي عن حالة 
                 </a>
               </div>

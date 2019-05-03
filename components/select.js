@@ -17,12 +17,12 @@ export default function Select({
       style={{ "background-color": "#ba365d" }}
     >
       <div className="measure w-100">
-        <label htmlFor="name" className="f3 db ma1 white ">
+        <label htmlFor="name" className="f3 db ma1 white">
           {selectLabel}
         </label>
         <select
           selected={selected}
-          className="pa1 w-100  white "
+          className="pa1 w-100  white"
           style={{
             "background-color": "#ba365d",
             "border-radius": "80px",
