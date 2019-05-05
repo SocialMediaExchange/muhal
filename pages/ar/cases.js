@@ -85,13 +85,13 @@ export default class Home extends Component {
 
     return (
       <Layout>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap mw9 ">
           <Search onChange={this.onChange} searchText={searchText} ar/>
           <Select ar options={mediumOptions} selected={this.state["Medium"]} onChange={this.onSelect("Medium")} selectLabel="وسيلة النشر" />
           <Select ar options={yearOptions} selected={this.state["Year"]} onChange={this.onSelect("Year")} selectLabel="السنة" />
           <Select ar options={complaintOptions} selected={this.state["Complaint"]} onChange={this.onSelect("Complaint")} selectLabel="الجهة المدعية"/>
         </div>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap mw9">
           {casesToDisplay.map(data => <Card data={data} key={data.id} ar/>)}
         </div>
       </Layout>
