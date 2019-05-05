@@ -8,7 +8,8 @@ export default function Layout({ children }) {
         <title>Muhal</title>
       </Head>
 
-      <div className="flex-l flex-m flex-column">
+      <div
+        className="flex-l flex-m flex-column">
         <main className="avenir w-100 overflow-y-auto flex-auto">
           <header className="w-100 pa0">
             <nav className="db dt-l w-100 border-box">
@@ -20,13 +21,14 @@ export default function Layout({ children }) {
               >
                 <img src="/static/logo_en.svg" height="h3" />
               </a>
-              <div className="db dtc-l v-mid w-100 w-75-l tc tr-l" 
-              style={{
-                backgroundImage: "url(" + "../static/nav-logo-en.png" + ")",
-                backgroundPosition: "right",
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat"
-              }}
+              <div
+                className="db dtc-l v-mid w-100 w-75-l tc tr-l"
+                style={{
+                  backgroundImage: "url(" + "../static/nav-logo-en.png" + ")",
+                  backgroundPosition: "right",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat"
+                }}
               >
                 <a
                   className="link dim black f5 ttu f4-l dib mr3 mr3-l pr3 pl3 pt1 pb1 br4 white"
@@ -63,12 +65,7 @@ export default function Layout({ children }) {
               </div>
             </nav>
           </header>
-          <div
-            className="pb4 p10 pl0 pt2"
-            
-          >
-            {children}
-          </div>
+          <div className="pb4 p10 pl0 pt2">{children}</div>
         </main>
         <footer className="h3 bg-washed-yellow flex">
           <div className="pa3 pb0">

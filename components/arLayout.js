@@ -1,13 +1,14 @@
 import Head from "next/head";
 import React from "react";
 
+
 export default function Layout({ children }) {
   return (
     <div>
       <Head>
         <title>محال</title>
         <link
-          href="https://fonts.googleapis.com/css?family=Lateef&amp;subset=arabic"
+          href="https://fonts.googleapis.com/css?family=Lateef|Tajawal&amp;subset=arabic"
           rel="stylesheet"
         />
       </Head>
@@ -37,7 +38,7 @@ export default function Layout({ children }) {
                 }}
               >
                 <a
-                  className="link dim black f5 ttu f4-l dib ml3 ml4-l pl3 pr3 pt1 pb1 br4 white"
+                  className="link dim black f5 ttu f4-l dib ml3 ml4-l pl3 pr3 pt1 pb1 br4 white" 
                   style={{ "background-color": "#f79d61" }}
                   href="/en/cases"
                   title="EN"
@@ -45,7 +46,7 @@ export default function Layout({ children }) {
                   EN
                 </a>
                 <a
-                  className="link dim black f5 ttu f4-l dib ml3 ml4-l pl3 pr3 pt1 pb1 br4 white"
+                  className="link dim black f5 ttu f4-l dib ml3 ml4-l pl3 pr3 pt1 pb1 br4 white" 
                   style={{ "background-color": "#3d3356" }}
                   href="/ar/cases"
                   title="Cases"

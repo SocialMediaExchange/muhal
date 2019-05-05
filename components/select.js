@@ -13,8 +13,8 @@ export default function Select({
   }
   return (
     <form
-      className="pa3 flex-auto mw5 mb2 "
-      style={{ "background-color": "#ba365d" }}
+      className="pa3 mb2 fl w-third mw6"
+      style={{ "background-color": "#ba365d", "max-width" : "17rem" }}
     >
       <div className="measure w-100">
         <label htmlFor="name" className="f3 db ma1 white">

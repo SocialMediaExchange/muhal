@@ -12,7 +12,7 @@ export default function SearchBox({ searchText, onChange, ar }) {
 
   return (
     <form
-      className="pa3 black-80 flex-auto mw6 center mb2" style={{"background-color": "#ba365d"}}
+      className="pa3 black-80 fl w-third mw6 mb2" style={{"background-color": "#ba365d"}}
       onSubmit={e => e.preventDefault()}
     >
       <div className="measure">
