@@ -12,24 +12,12 @@ export default function Select({
     none = "لا شيء محدد";
   }
   return (
-    <form
-      className="pa3 mb2 fl w-third mw6"
-      style={{ "background-color": "#ba365d", "max-width" : "17rem" }}
-    >
+    <form className="pa3 black-80 flex-auto mw5 center">
       <div className="measure w-100">
-        <label htmlFor="name" className="f3 db ma1 white">
+        <label htmlFor="name" className="f3 b db mb2">
           {selectLabel}
         </label>
-        <select
-          selected={selected}
-          className="pa1 w-100  white"
-          style={{
-            "background-color": "#ba365d",
-            "border-radius": "80px",
-            "border-color": "white"
-          }}
-          onChange={onChange}
-        >
+        <select selected={selected} className="pa2 w-100" onChange={onChange}>
           <option value={null}>{none}</option>
           {options.map((opt, i) => (
             <option key={`${selectLabel}-${i}`} value={opt}>
