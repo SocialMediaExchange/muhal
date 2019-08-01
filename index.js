@@ -1,8 +1,9 @@
 const express = require('express')
 const next = require('next')
+var debug = require('debug')
 
 const port = parseInt(process.env.PORT, 10) || 3000
-const dev = process.env.NODE_ENV !== 'production'
+const dev = true // process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
@@ -15,7 +16,7 @@ app.prepare()
     server.get('/', (req, res) => res.redirect('/ar/cases'))
 
     server.get('/_data/cases', (req, res) => {
-      getCases(100, function (err, records) {
+      getCases(1000, function (err, records) {
         return res.json(records)
       })
     })
@@ -50,9 +51,9 @@ app.prepare()
     })
 
     server.get('/en/cases', (req, res) => {
-      getCases(100, function (err, records) {
+      getCases(1000, function (err, records) {
         if (err) {
-          return app.render(req, res, "/en/cases", { cases: [] })
+          return app.render(req, res, "/en/cases", { cases: ['asdfa'] })
         } else {
           return app.render(req, res, "/en/cases", { cases: records })
         }
@@ -60,7 +61,7 @@ app.prepare()
     })
 
     server.get('/ar/cases', (req, res) => {
-      getCases(100, function (err, records) {
+      getCases(1000, function (err, records) {
         if (err) {
           return app.render(req, res, "/ar/cases", { cases: [] })
         } else {
