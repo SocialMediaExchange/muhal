@@ -1,9 +1,9 @@
 const express = require('express')
 const next = require('next')
-var debug = require('debug')
+
 
 const port = parseInt(process.env.PORT, 10) || 3000
-const dev = true // process.env.NODE_ENV !== 'production'
+const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
@@ -53,7 +53,7 @@ app.prepare()
     server.get('/en/cases', (req, res) => {
       getCases(1000, function (err, records) {
         if (err) {
-          return app.render(req, res, "/en/cases", { cases: ['asdfa'] })
+          return app.render(req, res, "/en/cases", { cases: [] })
         } else {
           return app.render(req, res, "/en/cases", { cases: records })
         }
