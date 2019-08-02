@@ -25,7 +25,7 @@ let exportObj = {
 
 if (process.env.NODE_ENV === 'production') {
   exportObj.exportPathMap = async function () {
-    let cases = await pify(getCases)(100)
+    let cases = await pify(getCases)(1000)
 
     let casePaths = {}
     for (let i=0; i < cases.length; i++) {
